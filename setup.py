@@ -51,7 +51,7 @@ setuptools.setup(
     package_data={
             "": [
                 str(p.resolve()) for p in Path("bigym/envs/xmls").glob("**/*")
-            ] + [str(p.resolve()) for p in Path("bigym/envs/presets").glob("**/*.yaml")],
+            ]
         },
     extras_require={
         "dev": ["pre-commit", "pytest"],
