@@ -48,8 +48,11 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     python_requires=">=3.10",
     install_requires=core_requirements,
-    package_data={"xmls": [str(p.resolve()) for p in Path("bigym/envs/xmls").glob("**/*")],
-                  "presets": [str(p.resolve()) for p in Path("bigym/envs/presets").glob("**/*")]},
+    package_data={
+            "": [
+                str(p.resolve()) for p in Path("bigym/envs/xmls").glob("**/*")
+            ] + [str(p.resolve()) for p in Path("bigym/envs/presets").glob("**/*.yaml")],
+        },
     extras_require={
         "dev": ["pre-commit", "pytest"],
         "examples": [
